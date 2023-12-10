@@ -6,7 +6,7 @@ import { TweetFooter } from "./Tweet/TweetFooter";
 import { RenderImages } from "./Tweet/RenderImages";
 import { TweetHeader } from "./Tweet/TweetHeader";
 
-export const Tweets = async ({ data, supabase, isTweet: className }: any) => {
+export const Tweets = async ({ data, supabase, singleTweetMode }: any) => {
   const { data: tweet, error } = await supabase
     .from("tweetsss")
     .select("*")
@@ -19,20 +19,20 @@ export const Tweets = async ({ data, supabase, isTweet: className }: any) => {
     >
       <div
         className={`overflow-hidden w-12 ${
-          className ? "hidden" : "flex flex-col"
+          singleTweetMode ? "hidden" : "flex flex-col"
         }`}
       >
-        {className ? "" : <UserProfile userPfp={e.userPFP} />}
+        {singleTweetMode ? "" : <UserProfile userPfp={e.userPFP} />}
 
         <Link
           href={"/status/2"}
-          className={`h-full w-full ${className ? "hidden" : "flex"}`}
+          className={`h-full w-full ${singleTweetMode ? "hidden" : "flex"}`}
         >
           <div className="w-full h-full"></div>
         </Link>
       </div>
       <div className="flex flex-col w-full">
-        <TweetHeader e={e} className={className} />
+        <TweetHeader e={e} singleTweetMode={singleTweetMode} />
         <RenderImages images={e.img || []} />
         {e.retweetedID && <ImageTweet rtTweet={tweet} data={e} />}
         <TweetFooter />

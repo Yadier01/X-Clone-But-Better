@@ -7,16 +7,18 @@ export const RenderUsername = ({
   username,
   ad,
   userpfp,
-  className,
+  singleTweetMode,
 }: any) => {
   return (
-    <div className={` ${className ? "fex flex-col" : "flex items-cxenter"}`}>
-      <div className={`${className ? "" : "flex w-full gap-2"}`}>
+    <div
+      className={` ${singleTweetMode ? "fex flex-col" : "flex items-cxenter"}`}
+    >
+      <div className={`${singleTweetMode ? "" : "flex w-full gap-2"}`}>
         <p>{username}</p>
         <p className="text-xs self-center"> @{ad}</p>
         <Link
           href={`/status/${id}`}
-          className={`w-full ${className ? "hidden" : " flex"}`}
+          className={`w-full ${singleTweetMode ? "hidden" : " flex"}`}
         />
       </div>
     </div>

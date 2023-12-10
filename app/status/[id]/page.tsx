@@ -21,7 +21,7 @@ export default async function Id({ params }: { params: { id: number } }) {
         <p>Post</p>
       </div>
       <div className="w-full">
-        <Main isTweet={true} data={tweetsss} supabase={supabase} />;
+        <Main singleTweetMode={true} data={tweetsss} supabase={supabase} />;
       </div>
     </div>
   );

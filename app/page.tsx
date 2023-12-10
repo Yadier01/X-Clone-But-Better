@@ -6,5 +6,5 @@ export default async function Home() {
   const cookieStore = cookies();
   const supabase = createServerComponentClient({ cookies: () => cookieStore });
   const { data } = await supabase.from("tweetsss").select();
-  return <Main isTweet={false} data={data} supabase={supabase} />;
+  return <Main singleTweetMode={false} data={data} supabase={supabase} />;
 }

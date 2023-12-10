@@ -6,7 +6,7 @@ import { TweetFooter } from "./Tweet/TweetFooter";
 import { RenderImages } from "./Tweet/RenderImages";
 import { TweetHeader } from "./Tweet/TweetHeader";
 
-export const Tweets = async ({ data, supabase, className }: any) => {
+export const Tweets = async ({ data, supabase, isTweet: className }: any) => {
   const { data: tweet, error } = await supabase
     .from("tweetsss")
     .select("*")

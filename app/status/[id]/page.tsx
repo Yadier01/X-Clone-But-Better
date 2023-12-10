@@ -1,6 +1,9 @@
+import Main from "@/app/components/UI/Main";
+import RightBar from "@/app/components/UI/RightBar";
 import { Tweets } from "@/app/components/tweets";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import Link from "next/link";
 import React from "react";
 
 export default async function Id({ params }: { params: { id: number } }) {
@@ -14,11 +17,11 @@ export default async function Id({ params }: { params: { id: number } }) {
   return (
     <div className="w-full">
       <div className="flex gap-10">
-        <p>back</p>
+        <Link href={"/"}>back</Link>
         <p>Post</p>
       </div>
       <div className="w-full">
-        <Tweets supabase={supabase} data={tweetsss} className={true} />
+        <Main isTweet={true} data={tweetsss} supabase={supabase} />;
       </div>
     </div>
   );
